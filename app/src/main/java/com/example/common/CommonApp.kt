@@ -10,6 +10,6 @@ class CommonApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        DebugLog.i(logTag, "onCreate()")
+        DebugLog.i(logTag, "onCreate-()")
     }
 }

@@ -7,7 +7,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 object DebugLog {
-    private const val TAG = "DEBUG"
+    private const val TAG = "MIA_DEBUG"
 
     @JvmStatic
     fun w(tag: String?, log: String?) {

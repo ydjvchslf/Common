@@ -25,6 +25,15 @@ android {
 //        }
     }
 
+    android {
+        viewBinding {
+            enabled true
+        }
+        dataBinding {
+            enabled true
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -63,4 +72,7 @@ dependencies {
     // hilt
     implementation "com.google.dagger:hilt-android:2.28-alpha"
     kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.0"
 }

@@ -14,5 +14,10 @@
         android:id="@+id/secondFragment"
         android:name="com.example.common.second.SecondFragment"
         android:label="SecondFragment"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.common.third.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_third"/>
 </navigation>

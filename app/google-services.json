@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6035234089",
+    "project_id": "test-5ff48",
+    "storage_bucket": "test-5ff48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6035234089:android:71588418733a5a9a4ceb38",
+        "android_client_info": {
+          "package_name": "com.poliotmia.common"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6035234089-3pu78asclfchvrere5r5o1fib9mfii6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9UnrntWvJyfXHUqWleF2TasCO2seG9NU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6035234089-3pu78asclfchvrere5r5o1fib9mfii6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

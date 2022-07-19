@@ -1,4 +1,4 @@
-package com.example.common
+package com.poliotmia.common
 
 import org.junit.Test
 

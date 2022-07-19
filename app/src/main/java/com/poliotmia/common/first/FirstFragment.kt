@@ -1,12 +1,12 @@
-package com.example.common.first
+package com.poliotmia.common.first
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.common.databinding.FragmentFirstBinding
-import com.example.common.util.DebugLog
+import com.poliotmia.common.databinding.FragmentFirstBinding
+import com.poliotmia.common.util.DebugLog
 
 class FirstFragment : Fragment() {
 

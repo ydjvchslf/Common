@@ -29,13 +29,20 @@
         android:id="@+id/input_password"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:inputType="numberPassword"/>
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="로그인 OR 회원가입" />
+        android:text="로그인" />
+
+    <Button
+        android:id="@+id/enroll_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="회원가입" />
 
 </LinearLayout>

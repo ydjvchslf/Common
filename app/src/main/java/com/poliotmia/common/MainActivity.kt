@@ -1,14 +1,11 @@
-package com.example.common
+package com.poliotmia.common
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavHost
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.example.common.databinding.ActivityMainBinding
-import com.example.common.util.DebugLog
+import com.poliotmia.common.databinding.ActivityMainBinding
+import com.poliotmia.common.util.DebugLog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

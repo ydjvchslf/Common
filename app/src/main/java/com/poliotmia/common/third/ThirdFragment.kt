@@ -1,13 +1,12 @@
-package com.example.common.third
+package com.poliotmia.common.third
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.common.databinding.FragmentSecondBinding
-import com.example.common.databinding.FragmentThirdBinding
-import com.example.common.util.DebugLog
+import com.poliotmia.common.databinding.FragmentThirdBinding
+import com.poliotmia.common.util.DebugLog
 
 class ThirdFragment : Fragment() {
 

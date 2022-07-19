@@ -1,7 +1,7 @@
-package com.example.common
+package com.poliotmia.common
 
 import android.app.Application
-import com.example.common.util.DebugLog
+import com.poliotmia.common.util.DebugLog
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

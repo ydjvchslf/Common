@@ -1,8 +1,7 @@
-package com.example.common.util
+package com.poliotmia.common.util
 
 import android.util.Log
-import android.util.Log.d
-import com.example.common.BuildConfig
+import com.poliotmia.common.BuildConfig
 import org.json.JSONArray
 import org.json.JSONObject
 

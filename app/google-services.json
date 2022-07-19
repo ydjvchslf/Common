@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "6035234089",
-    "project_id": "test-5ff48",
-    "storage_bucket": "test-5ff48.appspot.com"
+    "project_number": "508257947039",
+    "project_id": "testproject-bead9",
+    "storage_bucket": "testproject-bead9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:6035234089:android:71588418733a5a9a4ceb38",
+        "mobilesdk_app_id": "1:508257947039:android:5a77008da9835a14d7c1aa",
         "android_client_info": {
           "package_name": "com.poliotmia.common"
         }
       },
       "oauth_client": [
         {
-          "client_id": "6035234089-3pu78asclfchvrere5r5o1fib9mfii6j.apps.googleusercontent.com",
+          "client_id": "508257947039-tq73715t0c3815g3ovkdvdaa5f90tb00.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA9UnrntWvJyfXHUqWleF2TasCO2seG9NU"
+          "current_key": "AIzaSyAAtouTuG44CH69Y0cPvvhQfpRQ2YLxuQQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "6035234089-3pu78asclfchvrere5r5o1fib9mfii6j.apps.googleusercontent.com",
+              "client_id": "508257947039-tq73715t0c3815g3ovkdvdaa5f90tb00.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

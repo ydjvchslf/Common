@@ -39,6 +39,13 @@
         android:text="로그인" />
 
     <Button
+        android:id="@+id/google_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Google login" />
+
+    <Button
         android:id="@+id/enroll_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

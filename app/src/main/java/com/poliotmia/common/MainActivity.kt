@@ -1,11 +1,16 @@
 package com.poliotmia.common
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.poliotmia.common.databinding.ActivityMainBinding
 import com.poliotmia.common.util.DebugLog
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private val logTag = MainActivity::class.simpleName ?: ""
     private lateinit var binding: ActivityMainBinding
+    // firebase
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar) //커스텀한 toolbar를 액션바로 사용
         supportActionBar?.setDisplayShowTitleEnabled(false) //액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
         binding.toolbar.title = "~커스텀App~"
+
+        // Initialize Firebase Auth
+        auth = Firebase.auth
     }
 
     // 액션바 메뉴 액션바에 집어넣기
@@ -49,9 +59,21 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId){
             R.id.action_logout -> {
                 DebugLog.i(logTag, "onOptionsItemSelected-()")
+                auth.signOut()
+                val currentUser = auth.currentUser
+                // 로그인화면 전환
+                moveLoginPage(currentUser)
                 super.onOptionsItemSelected(item)
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun moveLoginPage(user: FirebaseUser?) {
+        DebugLog.i(logTag, "moveLoginPage-()")
+        if(user == null) {
+            finishAffinity()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

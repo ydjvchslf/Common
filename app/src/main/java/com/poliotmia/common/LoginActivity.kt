@@ -1,9 +1,11 @@
 package com.poliotmia.common
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.recreate
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -56,9 +58,9 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-//        if(currentUser != null){
-//            reload()
-//        }
+        if(currentUser != null){
+            moveMainPage(currentUser)
+        }
 
         // 일반 로그인
         binding.loginBtn.setOnClickListener {
@@ -80,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
     private fun login(email: String, pw: String) {
         if (email.isNotEmpty() && pw.isNotEmpty()) {
             DebugLog.i(logTag, "login-()")
-            DebugLog.d(logTag, "email: $email, pw: $pw")
+            //DebugLog.d(logTag, "email: $email, pw: $pw")
 
             auth.signInWithEmailAndPassword(email, pw)
                 .addOnCompleteListener(this) { task ->
@@ -88,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         DebugLog.d(logTag, "signInWithEmail:success")
                         val user = auth.currentUser
-                        //updateUI(user)
+                        moveMainPage(user)
                     } else {
                         // If sign in fails, display a message to the user.
                         DebugLog.w(logTag, "signInWithEmail:failure \n ${task.exception}")
@@ -163,8 +165,8 @@ class LoginActivity : AppCompatActivity() {
         DebugLog.i(logTag, "moveMainPage-()")
         // 파이어베이스 유저 상태가 있을 경우 다음 페이지로 넘어갈 수 있음
         if(user != null) {
+            finishAffinity()
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
-
 }

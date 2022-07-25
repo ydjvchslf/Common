@@ -2,6 +2,8 @@ package com.poliotmia.common
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.poliotmia.common.databinding.ActivityMainBinding
@@ -29,7 +31,27 @@ class MainActivity : AppCompatActivity() {
 
         //바텀 네비에션 뷰와 네비게이션 묶어줌
         NavigationUI.setupWithNavController(binding.bottomNavi, navController)
+
+        //커스텀 액션바
+        setSupportActionBar(binding.toolbar) //커스텀한 toolbar를 액션바로 사용
+        supportActionBar?.setDisplayShowTitleEnabled(false) //액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
+        binding.toolbar.title = "~커스텀App~"
     }
 
+    // 액션바 메뉴 액션바에 집어넣기
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    // 액션바 메뉴 클릭이벤트
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_logout -> {
+                DebugLog.i(logTag, "onOptionsItemSelected-()")
+                super.onOptionsItemSelected(item)
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

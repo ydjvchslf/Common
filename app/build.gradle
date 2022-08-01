@@ -85,5 +85,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
+    // firebase database
+    implementation 'com.google.firebase:firebase-core:10.2.1'
+    implementation 'com.google.firebase:firebase-database:10.2.1'
 
 }

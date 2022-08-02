@@ -1,5 +1,6 @@
 package com.poliotmia.common.second
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
@@ -8,25 +9,28 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import com.poliotmia.common.Photo
 import com.poliotmia.common.Profile
 import com.poliotmia.common.databinding.FragmentSecondBinding
 import com.poliotmia.common.util.DebugLog
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SecondFragment : Fragment() {
 
     private val logTag = SecondFragment::class.simpleName
     private lateinit var binding: FragmentSecondBinding
     private var auth: FirebaseAuth = Firebase.auth
+    private var storage: FirebaseStorage = Firebase.storage
     private lateinit var myRef: DatabaseReference
     private var imageUri : Uri? = null
 
@@ -47,6 +51,7 @@ class SecondFragment : Fragment() {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         DebugLog.i(logTag, "onViewCreated-()")
@@ -81,11 +86,23 @@ class SecondFragment : Fragment() {
 
             if(binding.inputNickname.text.isNotEmpty() || binding.inputOneLine.text.isNotEmpty() && profileCheck) {
                 val uid = auth.currentUser?.uid
-                val profile = Profile(
-                    inputNickname,
-                    inputOneLine,
-                    imageUri.toString()
+                val fileName =
+                    SimpleDateFormat("yyyyMMddHHmmss").format(Date()) // 파일명이 겹치면 안되기 떄문에 시년월일분초 지정
+
+                val photo = Photo (
+                    fileName = fileName,
+                    imageUrl = imageUri.toString()
                 )
+
+                val profile = Profile(
+                    nickName = inputNickname,
+                    oneLine = inputOneLine,
+                    photo = photo
+                )
+
+                DebugLog.d(logTag, "photo => $photo")
+                DebugLog.d(logTag, "profile => $profile")
+
                 addProfile(uid, profile)
             } else {
                 DebugLog.d(logTag, "세 항목 다 채워주세요 => profileCheck: $profileCheck")
@@ -93,7 +110,12 @@ class SecondFragment : Fragment() {
         }
     }
 
-    private fun addProfile(uid: String?, profile: Profile?) {
+    private fun addProfile(uid: String?, profile: Profile) {
         myRef.child("$uid").setValue(profile)
+
+        var storageRef = storage.reference.child("images").child(profile.photo?.fileName.toString())
+        storageRef.putFile(imageUri!!).addOnSuccessListener {
+            DebugLog.d(logTag, "업로드 성공")
+        }
     }
 }

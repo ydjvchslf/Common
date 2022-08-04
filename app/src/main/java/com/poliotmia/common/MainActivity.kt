@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     // firebase
     private lateinit var auth: FirebaseAuth
+    // navigation 전역변수로 수정
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
 
         //네비 컨트롤러
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         //바텀 네비에션 뷰와 네비게이션 묶어줌
         NavigationUI.setupWithNavController(binding.bottomNavi, navController)
@@ -58,11 +61,17 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.action_logout -> {
-                DebugLog.i(logTag, "onOptionsItemSelected-()")
+                DebugLog.i(logTag, "logoutSelected-()")
                 auth.signOut()
                 val currentUser = auth.currentUser
                 // 로그인화면 전환
                 moveLoginPage(currentUser)
+                super.onOptionsItemSelected(item)
+            }
+            R.id.action_profile -> {
+                DebugLog.i(logTag, "profileSelected-()")
+                // 프로필 화면 전환
+                navController.navigate(R.id.profileFragment)
                 super.onOptionsItemSelected(item)
             }
             else -> super.onOptionsItemSelected(item)

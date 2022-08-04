@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_profile"
+        android:title="프로필보기"
+        android:icon="@drawable/ic_baseline_supervised_profile_circle_24"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_logout"
         android:title="로그아웃"
         android:icon="@drawable/ic_baseline_logout_24"

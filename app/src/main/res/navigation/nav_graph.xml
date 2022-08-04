@@ -10,14 +10,23 @@
         android:name="com.poliotmia.common.first.FirstFragment"
         android:label="FirstFragment"
         tools:layout="@layout/fragment_first" />
+
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.poliotmia.common.second.SecondFragment"
         android:label="SecondFragment"
         tools:layout="@layout/fragment_second" />
+
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.poliotmia.common.third.ThirdFragment"
         android:label="ThirdFragment"
         tools:layout="@layout/fragment_third"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.poliotmia.common.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>

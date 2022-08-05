@@ -79,6 +79,9 @@ dependencies {
     // navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.0"
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     // firebase
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
